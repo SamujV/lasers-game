@@ -1,0 +1,19 @@
+package model;
+
+public class LinkedMatrix {
+	
+	private Node first;
+	private int rows;
+	private int cols;
+	
+	public LinkedMatrix(int n, int m) {
+		rows = n;
+		cols = m;
+		generateMatrix();
+	}
+	
+	private void generateMatrix() {
+		first = new Node(0,0);
+	}
+
+}

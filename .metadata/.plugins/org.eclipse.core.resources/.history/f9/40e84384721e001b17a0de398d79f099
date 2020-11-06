@@ -1,0 +1,38 @@
+package model;
+
+public class LinkedMatrix {
+	
+	private Node first;
+	private int rows;
+	private int cols;
+	
+	public LinkedMatrix(int m, int n) {
+		rows = m;
+		cols = n;
+		generateMatrix();
+	}
+	
+	private void generateMatrix() {
+		first = new Node(0,0);
+		createRow(0,0,first);
+	}
+
+	private void createRow(int i, int j, Node firstRow) {
+		createCol(i,j,firstRow);
+		if(i+1 < rows) {
+			Node downFirstRow = new Node(i,j);
+			downFirstRow.setUp(firstRow);
+			firstRow.setDown(downFirstRow);
+		}
+	}
+
+	private void createCol(int i, int j, Node prev) { // llamado recursivo para crear parte de la fila
+		if(j<cols) {
+			Node current = new Node(i,j);
+			current.setPrev(prev);
+			prev.setNext(current);
+			createCol(i,j+1, current);
+		}
+	}
+
+}

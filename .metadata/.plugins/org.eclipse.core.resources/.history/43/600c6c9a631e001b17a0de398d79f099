@@ -1,0 +1,31 @@
+package model;
+
+public class Node {
+	
+	private int row;
+	private int col;
+	
+	private Node next;
+	private Node prev;
+	private Node up;
+	private Node down;
+	
+	public Node(int r, int c) {
+		row = r;
+		col = c;
+	}
+	
+	public int getRow() {
+		return row;
+	}
+	
+	public int getCol() {
+		return col;
+	}
+	
+	public char getNameCol() {
+		return (char)('A' + col);
+	}
+	
+
+}
